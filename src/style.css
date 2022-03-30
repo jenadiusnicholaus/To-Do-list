@@ -65,11 +65,10 @@ input[type=text] {
 }
 
 input[type=text]:focus {
-  height: 30px;
-  width: 30px;
   border: none;
   outline: none;
   padding: 0;
+  font-style: italic;
 }
 
 input[type=checkbox] {
