@@ -1,4 +1,4 @@
-import todolist from './data';
+import todolist from './data.js';
 
 const renderTodo = () => {
   const todolistEl = document.querySelector('.todolist-ul');
