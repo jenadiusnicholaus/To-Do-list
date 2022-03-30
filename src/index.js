@@ -5,6 +5,6 @@ renderTodo();
 
 if (module.hot) {
   module.hot.accept('./components.js', () => {
-    // renderTodo()
+    renderTodo();
   });
 }
