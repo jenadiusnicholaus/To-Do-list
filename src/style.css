@@ -104,7 +104,6 @@ input[type=checkbox]:checked ~ {
   justify-content: space-between;
   box-shadow: rgba(17, 17, 26, 0.1) 0 1px 0;
   padding-bottom: 12px;
-
 }
 
 .icon {
