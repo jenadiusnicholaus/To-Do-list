@@ -52,6 +52,8 @@ button {
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 24px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 1px 0;
+  padding-bottom: 12px;
 }
 
 input[type=text] {
@@ -100,6 +102,9 @@ input[type=checkbox]:checked ~ {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 1px 0;
+  padding-bottom: 12px;
+
 }
 
 .icon {
