@@ -10,13 +10,13 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/components.js":
-/*!***************************!*\
-  !*** ./src/components.js ***!
-  \***************************/
+/***/ "./src/components/render.js":
+/*!**********************************!*\
+  !*** ./src/components/render.js ***!
+  \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _data_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data.js */ \"./src/data.js\");\n\n\nconst renderTodo = () => {\n  const todolistEl = document.querySelector('.todolist-ul');\n  todolistEl.innerHTML = '';\n  let liElement = '';\n  for (let i = 0; i < _data_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].length; i += 1) {\n    const liEl = document.createElement('LI');\n    liEl.classList.add('todoitem');\n\n    liElement += `<li class=\"todoitem\">\n    <div class=\"card-body\">\n      <div class=\"content\">\n        <input type=\"checkbox\">\n        <label class=\"lable\">${_data_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"][i].description}</label>\n      </div>\n      <svg  xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-three-dots-vertical menu-icon\" viewBox=\"0 0 16 16\">\n        <path d=\"M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z\"/>\n      </svg>\n    </div> \n    </li>`;\n  }\n  todolistEl.innerHTML = liElement;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderTodo);\n\n//# sourceURL=webpack://work-with-webpack/./src/components.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _data_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../data.js */ \"./src/data.js\");\n\n\nconst renderTodo = () => {\n  const todolistEl = document.querySelector('.todolist-ul');\n  todolistEl.innerHTML = '';\n  let liElement = '';\n  for (let i = 0; i < _data_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].length; i += 1) {\n    const liEl = document.createElement('LI');\n    liEl.classList.add('todoitem');\n\n    liElement += `<li class=\"todoitem\">\n    <div class=\"card-body\">\n      <div class=\"content\">\n        <input type=\"checkbox\">\n        <label class=\"lable\">${_data_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"][i].description}</label>\n      </div>\n      <svg  xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-three-dots-vertical menu-icon\" viewBox=\"0 0 16 16\">\n        <path d=\"M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z\"/>\n      </svg>\n    </div> \n    </li>`;\n  }\n  todolistEl.innerHTML = liElement;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderTodo);\n\n//# sourceURL=webpack://work-with-webpack/./src/components/render.js?");
 
 /***/ }),
 
@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst todolist = [\n  {\n    description: 'Learning webpack',\n    completed: false,\n    index: 0,\n  },\n\n  {\n    description: 'Learning softskills',\n    completed: false,\n    index: 0,\n  },\n  {\n    description: 'Learning webpack',\n    completed: false,\n    index: 0,\n  },\n\n  {\n    description: 'Learning Datastructure',\n    completed: false,\n    index: 0,\n  },\n];\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (todolist);\n\n//# sourceURL=webpack://work-with-webpack/./src/data.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst todolistArray = [\n  {\n    description: 'Learning webpack',\n    completed: false,\n    index: 0,\n  },\n\n  {\n    description: 'Learning softskills',\n    completed: false,\n    index: 0,\n  },\n  {\n    description: 'Learning webpack',\n    completed: false,\n    index: 0,\n  },\n\n  {\n    description: 'Learning Datastructure',\n    completed: false,\n    index: 0,\n  },\n];\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (todolistArray);\n\n//# sourceURL=webpack://work-with-webpack/./src/data.js?");
 
 /***/ })
 
@@ -90,7 +90,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/components.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/components/render.js");
 /******/ 	
 /******/ })()
 ;
