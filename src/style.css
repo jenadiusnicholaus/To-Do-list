@@ -64,6 +64,7 @@ input[type=text] {
   border: none;
   border-radius: 4px;
   box-sizing: border-box;
+  background: #fff;
 }
 
 input[type=text]:focus {
@@ -118,7 +119,13 @@ input[type=checkbox]:checked ~ {
   height: auto;
 }
 
-.card-body {
+.error {
+ border: 1px solid red;
+}
+
+
+.todoitem {
+
   height: 50px;
   display: flex;
   justify-content: space-between;
@@ -127,12 +134,12 @@ input[type=checkbox]:checked ~ {
   margin-left: 0;
   color: rgb(102, 92, 92);
   list-style-type: none;
-}
-
-.todoitem {
+  cursor: pointer;
   list-style-type: none;
   margin-top: 12px;
   box-shadow: rgba(17, 17, 26, 0.1) 0 1px 0;
+  cursor: pointer;
+
 }
 
 .clear-all {

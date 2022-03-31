@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webpack Exercise</title>
-<script defer src="/index.bundle.js"></script><script defer src="/render.bundle.js"></script><script defer src="/todolistcrud.bundle.js"></script><script defer src="/data.bundle.js"></script></head>
+<script defer src="/index.bundle.js"></script><script defer src="/render.bundle.js"></script><script defer src="/todolistcrud.bundle.js"></script><script defer src="/data.bundle.js"></script><script defer src="/localstorage.bundle.js"></script></head>
 <body>
    
     <div id="root">
@@ -25,7 +25,7 @@
                     <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
                   </svg>
                 </div>
-                <ul class="todolist-ul"> </ul>
+                <ul id="todolist-ul" class="todolist-ul"> </ul>
             </div>
             <div class="clear-all">
                 <button  type="button" class="btn-clear-all">Clear all completed</button>
@@ -37,3 +37,5 @@
     
 </body>
 </html>
+
+
