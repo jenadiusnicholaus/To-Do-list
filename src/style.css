@@ -71,7 +71,7 @@ input[type=text]:focus {
   outline: none;
   padding: 0;
   font-style: italic;
-  background:#fff;
+  background: #fff;
 }
 
 input[type=checkbox] {

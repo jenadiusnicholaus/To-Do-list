@@ -8,7 +8,7 @@ const renderTodo = () => {
     const liEl = document.createElement('LI');
     liEl.classList.add('todoitem');
 
-    liElement += `<li id="${id}" class="todoitem">
+    liElement += `<li id="${i}" class="todoitem">
     <div class="card-body">
       <div  class="content">
         <input type="checkbox">
