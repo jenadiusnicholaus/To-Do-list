@@ -2,7 +2,6 @@
 import renderTodo from './render.js';
 import TodoStore from './localstorage.js';
 
-
 class TodoList {
   constructor(description, isComplete = false) {
     this.id = TodoStore.getFromStorage().length;
@@ -19,13 +18,12 @@ export default class Crud {
       if (event.key === 'Enter') {
         const description = event.target.value;
 
-       
         if (document.getElementById('task-desc').value.length === 0) {
           return;
         }
         if (todos.some((task) => task.description === description)) {
           event.target.style.backgroundColor = '#c76161';
-        } else{
+        } else {
           todos.push(new TodoList(description));
           TodoStore.addToStorage(todos);
           renderTodo();
@@ -33,8 +31,6 @@ export default class Crud {
           document.querySelector('.icon').style.color = '#c2b5b5';
           event.target.style.backgroundColor = 'white';
         }
-
-       
       }
     }
 
