@@ -1,7 +1,5 @@
-import todolistArry from '../data.js';
 import TodoStore from './localstorage.js';
 
-console.log(TodoStore.getFromStorage())
 const renderTodo = () => {
   const todolistEl = document.querySelector('.todolist-ul');
   todolistEl.innerHTML = '';
@@ -13,17 +11,14 @@ const renderTodo = () => {
     liElement += `<li id="${i}" class="todoitem">
         <div  class="content">
            <input type="checkbox">
+           <label  id="${TodoStore.getFromStorage()[i].id}" contentEditable="true">
            ${TodoStore.getFromStorage()[i].description}
+           </label>
          </div>
-        
-         <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical menu-icon" viewBox="0 0 16 16">
-           <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-         </svg>
-
+         <i id="${TodoStore.getFromStorage()[i].id}" class="fa-solid fa-trash-can"></i>
     </li>`;
   }
   todolistEl.innerHTML = liElement;
 };
 
- 
 export default renderTodo;

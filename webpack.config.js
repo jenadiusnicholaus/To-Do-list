@@ -7,8 +7,7 @@ module.exports = {
     index: './src/index.js',
     render: './src/components/render.js',
     todolistcrud: './src/components/todolistcrud.js',
-    data: './src/data.js',
-    localstorage: './src/components/localstorage.js'
+    localstorage: './src/components/localstorage.js',
   },
 
   devServer: {

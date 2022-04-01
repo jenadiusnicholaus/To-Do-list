@@ -57,7 +57,7 @@ button {
 }
 
 input[type=text] {
-  padding: 0;
+  padding: 10px;
   width: 100%;
   margin: 0;
   display: inline-block;
@@ -70,7 +70,7 @@ input[type=text] {
 input[type=text]:focus {
   border: none;
   outline: none;
-  padding: 0;
+  padding: 10px;
   font-style: italic;
   background: #fff;
 }
@@ -109,8 +109,20 @@ input[type=checkbox]:checked ~ {
 }
 
 .icon {
-  color: rgb(194, 181, 181);
+  color: #c2b5b5;
   margin-right: 10px;
+}
+
+.fa-trash-can:hover {
+  color: #c76161;
+}
+
+.fa-ellipsis-vertical {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+
+  /* background-color: #c76161; */
 }
 
 .todolist-ul {
@@ -119,13 +131,15 @@ input[type=checkbox]:checked ~ {
   height: auto;
 }
 
-.error {
- border: 1px solid red;
+.todolist-ul li:hover {
+  background: rgb(248, 248, 248);
 }
 
+.error {
+  border: 1px solid red;
+}
 
 .todoitem {
-
   height: 50px;
   display: flex;
   justify-content: space-between;
@@ -135,11 +149,12 @@ input[type=checkbox]:checked ~ {
   color: rgb(102, 92, 92);
   list-style-type: none;
   cursor: pointer;
-  list-style-type: none;
   margin-top: 12px;
   box-shadow: rgba(17, 17, 26, 0.1) 0 1px 0;
-  cursor: pointer;
+}
 
+.click-li {
+  background-color: #ddd;
 }
 
 .clear-all {
