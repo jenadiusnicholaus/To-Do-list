@@ -2,9 +2,10 @@
 import renderTodo from './render.js';
 import TodoStore from './localstorage.js';
 
+
 class TodoList {
   constructor(description, isComplete = false) {
-    this.id = Date.now().toString(36) + Math.random().toString(36).substr(2);
+    this.id = TodoStore.getFromStorage().length;
     this.description = description;
     this.isComplete = isComplete;
   }
@@ -18,21 +19,22 @@ export default class Crud {
       if (event.key === 'Enter') {
         const description = event.target.value;
 
-        if (todos.some((task) => task.description === description)) {
-          event.target.style.backgroundColor = '#c76161';
-        }
+       
         if (document.getElementById('task-desc').value.length === 0) {
-          //  document.querySelector('.icon').style.color= '#c76161';
-          // event.target.style.background='#c76161';
           return;
         }
+        if (todos.some((task) => task.description === description)) {
+          event.target.style.backgroundColor = '#c76161';
+        } else{
+          todos.push(new TodoList(description));
+          TodoStore.addToStorage(todos);
+          renderTodo();
+          document.getElementById('task-desc').value = '';
+          document.querySelector('.icon').style.color = '#c2b5b5';
+          event.target.style.backgroundColor = 'white';
+        }
 
-        todos.push(new TodoList(description));
-        TodoStore.addToStorage(todos);
-        renderTodo();
-        document.getElementById('task-desc').value = '';
-        document.querySelector('.icon').style.color = '#c2b5b5';
-        event.target.style.backgroundColor = 'white';
+       
       }
     }
 
@@ -54,13 +56,13 @@ export default class Crud {
 document.getElementById('todolist-ul').addEventListener('click', (event) => {
   // remove item
   if (event.target.tagName === 'I') {
-    Crud.removeTodoTask(event.target.id);
+    Crud.removeTodoTask(parseInt(event.target.id, 10));
     renderTodo();
   }
   // Edit description
   if (event.target.tagName === 'LABEL') {
     const todos = TodoStore.getFromStorage();
-    Crud.editTodoDescrip(event.target.id, event.target.textContent, todos);
+    Crud.editTodoDescrip(parseInt(event.target.id, 10), event.target.textContent, todos);
     TodoStore.addToStorage(todos);
     renderTodo();
   }
