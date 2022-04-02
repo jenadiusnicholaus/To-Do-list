@@ -3,12 +3,12 @@ import TodoStore from './localstorage.js';
 import TodoListModel from './models.js';
 
 export default class Crud {
-    static resetIndexes(todos) {
-      for (let index = 0; index < todos.length; index += 1) {
-        todos[index].id = index;
-      }
-      return todos;
+  static resetIndexes(todos) {
+    for (let index = 0; index < todos.length; index += 1) {
+      todos[index].id = index;
     }
+    return todos;
+  }
 
     static addTodoTask = (event) => {
       event.target.style.backgroundColor = 'white';
