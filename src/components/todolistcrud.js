@@ -1,19 +1,21 @@
-/* eslint-disable max-classes-per-file */
 import renderTodo from './render.js';
 import TodoStore from './localstorage.js';
-
-class TodoList {
-  constructor(description, isComplete = false) {
-    this.id = TodoStore.getFromStorage().length;
-    this.description = description;
-    this.isComplete = isComplete;
-  }
-}
+import TodoListModel from './models.js'
 
 export default class Crud {
+
+    static resetIndexes(todos) {  
+      // remainingTodos.map((item, index) => item.id = index);
+        for (let index= 0; index<todos.length; index+=1 ){
+          todos[index].id = index;
+        }
+        return todos
+     
+    }
+
     static addTodoTask = (event) => {
       event.target.style.backgroundColor = 'white';
-      const todos = TodoStore.getFromStorage();
+      let todos = TodoStore.getFromStorage();
 
       if (event.key === 'Enter') {
         const description = event.target.value;
@@ -21,11 +23,12 @@ export default class Crud {
         if (document.getElementById('task-desc').value.length === 0) {
           return;
         }
-        if (todos.some((task) => task.description === description)) {
-          event.target.style.backgroundColor = '#c76161';
-        } else {
-          todos.push(new TodoList(description));
-          TodoStore.addToStorage(todos);
+       
+       else {
+          todos = this.resetIndexes(todos); 
+          todos.push(new TodoListModel( description));
+          TodoStore.addToStorage(todos)
+          
           renderTodo();
           document.getElementById('task-desc').value = '';
           document.querySelector('.icon').style.color = '#c2b5b5';
@@ -36,17 +39,20 @@ export default class Crud {
 
     static removeTodoTask = (id) => {
       const todolist = TodoStore.getFromStorage();
-      const filteredlist = todolist.filter((item) => item.id !== id);
-      localStorage.setItem('todos', JSON.stringify(filteredlist));
+      let filteredlist = todolist.filter((item) => item.id !== id);
+      // this.updateIndeces(filteredlist)
+     TodoStore.addToStorage(filteredlist)
     };
 
-    static editTodoDescrip = (id, descrption, todos) => {
+    static editTodoDescription = (id, descrption, todos) => {
       for (let i = 0; i < todos.length; i += 1) {
         if (todos[i].id === id) {
           todos[i].description = descrption;
         }
       }
     }
+
+    
 }
 
 document.getElementById('todolist-ul').addEventListener('click', (event) => {
@@ -58,7 +64,7 @@ document.getElementById('todolist-ul').addEventListener('click', (event) => {
   // Edit description
   if (event.target.tagName === 'LABEL') {
     const todos = TodoStore.getFromStorage();
-    Crud.editTodoDescrip(parseInt(event.target.id, 10), event.target.textContent, todos);
+    Crud.editTodoDescription(parseInt(event.target.id, 10), event.target.textContent, todos);
     TodoStore.addToStorage(todos);
     renderTodo();
   }
@@ -66,3 +72,15 @@ document.getElementById('todolist-ul').addEventListener('click', (event) => {
 
 // Add to local storage
 document.getElementById('task-desc').addEventListener('keydown', Crud.addTodoTask);
+
+
+
+
+// let forDeletion = [2, 3, 5]
+
+// let arr = [1, 2, 3, 4, 5, 3]
+
+// arr = arr.filter(item => !forDeletion.includes(item))
+// // !!! Read below about array.includes(...) support !!!
+
+// console.log(arr)

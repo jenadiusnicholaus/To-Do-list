@@ -8,6 +8,7 @@ module.exports = {
     render: './src/components/render.js',
     todolistcrud: './src/components/todolistcrud.js',
     localstorage: './src/components/localstorage.js',
+    model: './src/components/models.js',
   },
 
   devServer: {

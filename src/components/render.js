@@ -1,13 +1,11 @@
 import TodoStore from './localstorage.js';
+import Crud from './todolistcrud.js';
 
 const renderTodo = () => {
   const todolistEl = document.querySelector('.todolist-ul');
   todolistEl.innerHTML = '';
   let liElement = '';
   for (let i = 0; i < TodoStore.getFromStorage().length; i += 1) {
-    const liEl = document.createElement('LI');
-    liEl.classList.add('todoitem');
-
     liElement += `<li id="${i}" class="todoitem">
         <div  class="content">
            <input type="checkbox">
@@ -17,6 +15,7 @@ const renderTodo = () => {
          </div>
          <i id="${TodoStore.getFromStorage()[i].id}" class="fa-solid fa-trash-can"></i>
     </li>`;
+
   }
   todolistEl.innerHTML = liElement;
 };
