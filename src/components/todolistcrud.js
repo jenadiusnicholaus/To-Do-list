@@ -1,16 +1,13 @@
 import renderTodo from './render.js';
 import TodoStore from './localstorage.js';
-import TodoListModel from './models.js'
+import TodoListModel from './models.js';
 
 export default class Crud {
-
-    static resetIndexes(todos) {  
-      // remainingTodos.map((item, index) => item.id = index);
-        for (let index= 0; index<todos.length; index+=1 ){
-          todos[index].id = index;
-        }
-        return todos
-     
+    static resetIndexes(todos) {
+      for (let index = 0; index < todos.length; index += 1) {
+        todos[index].id = index;
+      }
+      return todos;
     }
 
     static addTodoTask = (event) => {
@@ -21,15 +18,14 @@ export default class Crud {
         const description = event.target.value;
 
         if (document.getElementById('task-desc').value.length === 0) {
-          return;
-        }
-       
-       else {
-          todos = this.resetIndexes(todos); 
-          todos.push(new TodoListModel( description));
-          TodoStore.addToStorage(todos)
-          
+          document.querySelector('.icon').style.color = 'red';
+        } else {
+          todos = this.resetIndexes(todos);
+          todos.push(new TodoListModel(description));
+          TodoStore.addToStorage(todos);
+
           renderTodo();
+          // clean input
           document.getElementById('task-desc').value = '';
           document.querySelector('.icon').style.color = '#c2b5b5';
           event.target.style.backgroundColor = 'white';
@@ -37,11 +33,10 @@ export default class Crud {
       }
     }
 
-    static removeTodoTask = (id) => {
+    static removeTodoTask = (index) => {
       const todolist = TodoStore.getFromStorage();
-      let filteredlist = todolist.filter((item) => item.id !== id);
-      // this.updateIndeces(filteredlist)
-     TodoStore.addToStorage(filteredlist)
+      const filteredlist = todolist.filter((item) => item.id !== index);
+      TodoStore.addToStorage(filteredlist);
     };
 
     static editTodoDescription = (id, descrption, todos) => {
@@ -51,8 +46,6 @@ export default class Crud {
         }
       }
     }
-
-    
 }
 
 document.getElementById('todolist-ul').addEventListener('click', (event) => {
@@ -72,15 +65,3 @@ document.getElementById('todolist-ul').addEventListener('click', (event) => {
 
 // Add to local storage
 document.getElementById('task-desc').addEventListener('keydown', Crud.addTodoTask);
-
-
-
-
-// let forDeletion = [2, 3, 5]
-
-// let arr = [1, 2, 3, 4, 5, 3]
-
-// arr = arr.filter(item => !forDeletion.includes(item))
-// // !!! Read below about array.includes(...) support !!!
-
-// console.log(arr)

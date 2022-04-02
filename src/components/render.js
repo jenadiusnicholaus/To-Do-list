@@ -1,5 +1,4 @@
 import TodoStore from './localstorage.js';
-import Crud from './todolistcrud.js';
 
 const renderTodo = () => {
   const todolistEl = document.querySelector('.todolist-ul');
@@ -15,7 +14,6 @@ const renderTodo = () => {
          </div>
          <i id="${TodoStore.getFromStorage()[i].id}" class="fa-solid fa-trash-can"></i>
     </li>`;
-
   }
   todolistEl.innerHTML = liElement;
 };
