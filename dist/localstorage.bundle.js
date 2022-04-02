@@ -10,13 +10,13 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/data.js":
-/*!*********************!*\
-  !*** ./src/data.js ***!
-  \*********************/
+/***/ "./src/components/localstorage.js":
+/*!****************************************!*\
+  !*** ./src/components/localstorage.js ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst todolist = [\n  {\n    description: 'Learning webpack',\n    completed: false,\n    index: 0,\n  },\n\n  {\n    description: 'Learning softskills',\n    completed: false,\n    index: 0,\n  },\n  {\n    description: 'Learning webpack',\n    completed: false,\n    index: 0,\n  },\n\n  {\n    description: 'Learning Datastructure',\n    completed: false,\n    index: 0,\n  },\n];\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (todolist);\n\n//# sourceURL=webpack://work-with-webpack/./src/data.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ TodoStore)\n/* harmony export */ });\nclass TodoStore {\n    static getFromStorage= () => JSON.parse(localStorage.getItem('todos') || '[]');\n\n    static addToStorage = (todolistarray) => {\n      localStorage.setItem('todos', JSON.stringify(todolistarray));\n    }\n}\n\n//# sourceURL=webpack://work-with-webpack/./src/components/localstorage.js?");
 
 /***/ })
 
@@ -60,7 +60,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./src/data.js"](0, __webpack_exports__, __webpack_require__);
+/******/ 	__webpack_modules__["./src/components/localstorage.js"](0, __webpack_exports__, __webpack_require__);
 /******/ 	
 /******/ })()
 ;

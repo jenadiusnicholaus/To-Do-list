@@ -5,13 +5,15 @@ module.exports = {
   mode: 'development',
   entry: {
     index: './src/index.js',
-    components: './src/components.js',
-    data: './src/data.js',
+    render: './src/components/render.js',
+    todolistcrud: './src/components/todolistcrud.js',
+    localstorage: './src/components/localstorage.js',
+    model: './src/components/models.js',
   },
 
   devServer: {
     static: './dist',
-    hot: true,
+
   },
 
   plugins: [
