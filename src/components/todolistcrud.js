@@ -62,10 +62,10 @@ document.getElementById('todolist-ul').addEventListener('click', (event) => {
     renderTodo();
   }
 
-  if(event.target.type==="checkbox"){
+  if (event.target.type === 'checkbox') {
     const todos = TodoStore.getFromStorage();
-    for(let i = 0; i<todos.length; i+=1){
-      if(todos[i].id === parseInt(event.target.id, 10)){
+    for (let i = 0; i < todos.length; i += 1) {
+      if (todos[i].id === parseInt(event.target.id, 10)) {
         todos[i].isComplete = !todos[i].isComplete;
       }
     }
@@ -76,9 +76,9 @@ document.getElementById('todolist-ul').addEventListener('click', (event) => {
 // Add to local storage
 document.getElementById('task-desc').addEventListener('keydown', Crud.addTodoTask);
 
-// delete al with complete true value to 
-document.getElementById('btn-clear-all').addEventListener('click', (event)=>{
-  const notCompleteTodos = TodoStore.getFromStorage().filter((item)=> item.isComplete !== true)
-  TodoStore.addToStorage(notCompleteTodos)
-  renderTodo()
-})
+// delete al with complete true value to
+document.getElementById('btn-clear-all').addEventListener('click', () => {
+  const notCompleteTodos = TodoStore.getFromStorage().filter((item) => item.isComplete !== true);
+  TodoStore.addToStorage(notCompleteTodos);
+  renderTodo();
+});
