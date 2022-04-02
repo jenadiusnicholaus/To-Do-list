@@ -20,13 +20,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/components/render.js":
+/***/ "./src/components/models.js":
 /*!**********************************!*\
-  !*** ./src/components/render.js ***!
+  !*** ./src/components/models.js ***!
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _localstorage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./localstorage.js */ \"./src/components/localstorage.js\");\n\n\nconst renderTodo = () => {\n  const todolistEl = document.querySelector('.todolist-ul');\n  todolistEl.innerHTML = '';\n  let liElement = '';\n  for (let i = 0; i < _localstorage_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].getFromStorage().length; i += 1) {\n    const todos = _localstorage_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].getFromStorage()[i];\n    liElement += `<li id=\"${i}\" class=\"todoitem\">\n        <div  class=\"content\">\n           <input ${todos.isComplete ? 'checked' : ''} id=\"${todos.id}\" type=\"checkbox\">\n           <label id=\"${todos.id}\" contentEditable=\"true\">${todos.description}</label>\n         </div>\n         <i id=\"${todos.id}\" class=\"fa-solid fa-trash-can\"></i>\n    </li>`;\n  }\n  todolistEl.innerHTML = liElement;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderTodo);\n\n//# sourceURL=webpack://work-with-webpack/./src/components/render.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ TodoListModel)\n/* harmony export */ });\n/* harmony import */ var _localstorage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./localstorage.js */ \"./src/components/localstorage.js\");\n\n\nclass TodoListModel {\n  constructor(description, isComplete = false) {\n    this.id = _localstorage_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].getFromStorage().length;\n    this.description = description;\n    this.isComplete = isComplete;\n  }\n}\n\n//# sourceURL=webpack://work-with-webpack/./src/components/models.js?");
 
 /***/ })
 
@@ -90,7 +90,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/components/render.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/components/models.js");
 /******/ 	
 /******/ })()
 ;
