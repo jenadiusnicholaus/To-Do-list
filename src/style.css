@@ -85,8 +85,8 @@ input[type=checkbox] {
   margin-right: 12px;
 }
 
-input[type=checkbox]:checked ~ {
-  background-color: #2196f3;
+input[type=checkbox]:checked + label {
+  text-decoration: line-through;
 }
 
 .list-card {

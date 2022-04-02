@@ -61,7 +61,24 @@ document.getElementById('todolist-ul').addEventListener('click', (event) => {
     TodoStore.addToStorage(todos);
     renderTodo();
   }
+
+  if (event.target.type === 'checkbox') {
+    const todos = TodoStore.getFromStorage();
+    for (let i = 0; i < todos.length; i += 1) {
+      if (todos[i].id === parseInt(event.target.id, 10)) {
+        todos[i].isComplete = !todos[i].isComplete;
+      }
+    }
+    TodoStore.addToStorage(todos);
+  }
 });
 
 // Add to local storage
 document.getElementById('task-desc').addEventListener('keydown', Crud.addTodoTask);
+
+// delete al with complete true value to
+document.getElementById('btn-clear-all').addEventListener('click', () => {
+  const notCompleteTodos = TodoStore.getFromStorage().filter((item) => item.isComplete !== true);
+  TodoStore.addToStorage(notCompleteTodos);
+  renderTodo();
+});

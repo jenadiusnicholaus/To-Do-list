@@ -5,14 +5,13 @@ const renderTodo = () => {
   todolistEl.innerHTML = '';
   let liElement = '';
   for (let i = 0; i < TodoStore.getFromStorage().length; i += 1) {
+    const todos = TodoStore.getFromStorage()[i];
     liElement += `<li id="${i}" class="todoitem">
         <div  class="content">
-           <input type="checkbox">
-           <label  id="${TodoStore.getFromStorage()[i].id}" contentEditable="true">
-           ${TodoStore.getFromStorage()[i].description}
-           </label>
+           <input ${todos.isComplete ? 'checked' : ''} id="${todos.id}" type="checkbox">
+           <label id="${todos.id}" contentEditable="true">${todos.description}</label>
          </div>
-         <i id="${TodoStore.getFromStorage()[i].id}" class="fa-solid fa-trash-can"></i>
+         <i id="${todos.id}" class="fa-solid fa-trash-can"></i>
     </li>`;
   }
   todolistEl.innerHTML = liElement;
