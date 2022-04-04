@@ -10,11 +10,6 @@ HTML CSS Javascript, webpack
 
 [link to work with webpack](https://jenadiusnicholaus.github.io/To-Do-list/)
 
-## video demo
-
-[![Watch the video](./src/tododemo.mp4)](./src/tododemo.mp4)
-
-
 ## Getting started
 
 To get a local copy up and running follow these simple example steps.
